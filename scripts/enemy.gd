@@ -20,6 +20,9 @@ func _ready() -> void:
     _target = get_tree().get_first_node_in_group("player")
     add_to_group("enemies")
 
+func set_arena_manager(arena_manager: Node) -> void:
+    _arena_manager = arena_manager
+
 func _physics_process(delta: float) -> void:
     if not is_instance_valid(_target):
         _target = get_tree().get_first_node_in_group("player")

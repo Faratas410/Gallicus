@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player: Node = $Player
-@onready var spawner: Node = $Spawner
+@onready var arena_manager: Node = $ArenaManager
 @onready var ui: Control = $UI
 
 var _is_game_over: bool = false
@@ -19,7 +19,9 @@ func _ready() -> void:
     spawner.connect("all_waves_cleared", Callable(self, "_on_all_waves_cleared"))
 
     ui.update_health(player.health, player.max_health)
-    ui.on_wave_started(spawner.current_wave)
+    ui.on_wave_started(arena_manager.current_wave)
+    if arena_manager.has_method("refresh_enemy_count"):
+        arena_manager.refresh_enemy_count()
 
 func _on_wave_started(wave_number: int) -> void:
     ui.on_wave_started(wave_number)

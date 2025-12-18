@@ -14,7 +14,7 @@ func _ready() -> void:
     health = max_health
     add_to_group("enemies")
     _target = get_tree().get_first_node_in_group("player")
-    _arena_manager = get_tree().root.find_child("ArenaManager", true, false)
+    add_to_group("enemies")
 
 func _physics_process(delta: float) -> void:
     if not is_instance_valid(_target):

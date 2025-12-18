@@ -18,18 +18,10 @@ func on_wave_completed(wave_number: int) -> void:
     _wave_label.text = "Wave %d cleared" % wave_number
 
 func on_game_over() -> void:
-    _show_overlay("Game Over")
+    _game_over_label.text = "GAME OVER\nPress R to Restart"
+    _game_over_label.visible = true
 
-func on_victory() -> void:
-    _show_overlay("Victory (Demo)")
-
-func on_enemy_count_changed(remaining: int, total: int) -> void:
-    if total > 0:
-        _enemy_label.text = "Nemici rimasti: %d / %d" % [remaining, total]
-    else:
-        _enemy_label.text = "Nemici rimasti: %d" % remaining
-
-func _show_overlay(message: String) -> void:
-    _message_label.text = message
-    _hint_label.text = "Premi R per ricominciare"
-    _overlay.visible = true
+func on_victory(wave_number: int) -> void:
+    _wave_label.text = "Wave %d cleared" % wave_number
+    _game_over_label.text = "Victory (Demo)\nPress R to Restart"
+    _game_over_label.visible = true

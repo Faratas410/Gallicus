@@ -21,25 +21,19 @@ text = "HP: 0 / 0"
 [node name="WaveLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 text = "Wave 0"
 
-[node name="EnemiesLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-text = "Nemici rimasti: 0"
-
-[node name="Overlay" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-visible = false
-
-[node name="CenterContainer" type="CenterContainer" parent="Overlay"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/CenterContainer"]
-alignment = 1
-
-[node name="MessageLabel" type="Label" parent="Overlay/CenterContainer/VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -40.0
+offset_right = 140.0
+offset_bottom = 60.0
 text = "GAME OVER"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 theme_override_font_sizes/font_size = 28
 
 [node name="HintLabel" type="Label" parent="Overlay/CenterContainer/VBoxContainer"]

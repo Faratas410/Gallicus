@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/UI.tscn" id="3"]
-[ext_resource type="Script" path="res://scripts/spawner.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/arena_manager.gd" id="4"]
 [ext_resource type="PackedScene" path="res://scenes/Enemy.tscn" id="5"]
 
 [node name="Main" type="Node2D"]
@@ -12,15 +12,15 @@ script = ExtResource("1")
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(0, 0)
 
-[node name="Spawner" type="Node" parent="."]
+[node name="ArenaManager" type="Node" parent="."]
 script = ExtResource("4")
 enemy_scene = ExtResource("5")
 
-[node name="SpawnTimer" type="Timer" parent="Spawner"]
+[node name="SpawnTimer" type="Timer" parent="ArenaManager"]
 autostart = false
 wait_time = 1.0
 
-[node name="WaveTimer" type="Timer" parent="Spawner"]
+[node name="WaveTimer" type="Timer" parent="ArenaManager"]
 autostart = false
 wait_time = 2.0
 one_shot = true

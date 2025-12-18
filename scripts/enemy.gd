@@ -12,6 +12,7 @@ var _target: Node2D
 func _ready() -> void:
     health = max_health
     _target = get_tree().get_first_node_in_group("player")
+    add_to_group("enemies")
 
 func _physics_process(delta: float) -> void:
     if not is_instance_valid(_target):

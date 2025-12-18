@@ -1,0 +1,8 @@
+# Godot metadata
+.godot/
+imported/
+
+# Editor backups
+*.tmp
+*.bak
+*.swp

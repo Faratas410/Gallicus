@@ -8,7 +8,9 @@ signal died
 @export var max_hp: int = 100
 @export var invuln_time: float = 0.5
 @export var melee_damage: int = 20
-@export var melee_cooldown: float = 0.5
+@export var melee_cooldown: float = 0.35
+@export var melee_offset: float = 26.0
+@export var show_melee_hitbox: bool = false
 
 var hp: int
 var health: int:
@@ -25,6 +27,8 @@ var _flash_timer: float = 0.0
 var _is_dimmed: bool = false
 
 @onready var _melee_area: Area2D = $MeleeArea
+@onready var _melee_shape: CollisionShape2D = $MeleeArea/MeleeShape
+@onready var _melee_debug: Node2D = $MeleeArea/DebugHitbox
 
 const FLASH_INTERVAL := 0.1
 const FLASH_ALPHA := 0.35
@@ -38,6 +42,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
     _handle_movement(delta)
+    _update_melee_area_transform()
+    _update_debug_hitbox_visibility()
     _handle_melee(delta)
 
 func _process(delta: float) -> void:
@@ -63,6 +69,7 @@ func _handle_melee(delta: float) -> void:
         _perform_melee_attack()
 
 func _perform_melee_attack() -> void:
+    _swing_hits.clear()
     for body in _melee_area.get_overlapping_bodies():
         if body == self:
             continue

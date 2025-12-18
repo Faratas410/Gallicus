@@ -1,6 +1,7 @@
 # Godot metadata
 .godot/
 imported/
+*.import
 
 # Editor backups
 *.tmp

@@ -1,1 +1,14 @@
-Gallicus Readme
+# Gallicus
+
+Project Godot 4.5 minimale per arena survival.
+
+## Come avviare
+1. Apri il progetto in Godot 4.5 (file `project.godot`).
+2. Premi Play: la scena principale è `scenes/Main.tscn`.
+
+## Funzionalità incluse
+- Movimento del giocatore (WASD/frecce) con attacco melee su `Space`.
+- HP del giocatore con segnale UI e game over alla morte.
+- Nemici che inseguono e infliggono danno a contatto.
+- Spawner con ondate crescenti, pausa tra ondate e avanzamento automatico.
+- UI minimale con HP, stato ondata e messaggio di game over.

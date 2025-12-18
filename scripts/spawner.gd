@@ -50,8 +50,8 @@ func _spawn_enemy() -> void:
     add_child(enemy)
     enemy.global_position = _random_spawn_position()
 
-    if enemy.has_signal("defeated"):
-        enemy.connect("defeated", Callable(self, "_on_enemy_defeated"))
+    if enemy.has_signal("died"):
+        enemy.connect("died", Callable(self, "_on_enemy_defeated"))
 
     _enemies_to_spawn -= 1
     _active_enemies += 1

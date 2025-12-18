@@ -15,4 +15,10 @@ func on_wave_completed(wave_number: int) -> void:
     _wave_label.text = "Wave %d cleared" % wave_number
 
 func on_game_over() -> void:
+    _game_over_label.text = "GAME OVER\nPress R to Restart"
+    _game_over_label.visible = true
+
+func on_victory(wave_number: int) -> void:
+    _wave_label.text = "Wave %d cleared" % wave_number
+    _game_over_label.text = "Victory (Demo)\nPress R to Restart"
     _game_over_label.visible = true

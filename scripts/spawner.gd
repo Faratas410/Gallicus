@@ -10,6 +10,7 @@ signal all_waves_cleared
 @export var spawn_interval: float = 1.0
 @export var wave_pause: float = 2.0
 @export var spawn_radius: float = 220.0
+@export var max_waves: int = 5
 
 var current_wave: int = 0
 var _enemies_to_spawn: int = 0
@@ -64,6 +65,10 @@ func _on_enemy_defeated() -> void:
 func _finish_wave() -> void:
     _spawn_timer.stop()
     emit_signal("wave_completed", current_wave)
+    if current_wave >= max_waves:
+        emit_signal("all_waves_cleared")
+        return
+
     _wave_timer.start(wave_pause)
 
 func _random_spawn_position() -> Vector2:
